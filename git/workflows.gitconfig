@@ -1,0 +1,10 @@
+[push]
+    autoSetupRemote = true # mostly nonfunctional using triangular workflow, but doesn't hurt
+    default = current
+[branch]
+	autoSetupMerge = inherit
+	autoSetupRebase = always
+[pull]
+	rebase = true
+[rebase]
+    autoStash = true
