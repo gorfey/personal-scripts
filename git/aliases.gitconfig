@@ -1,6 +1,7 @@
 [alias]
     logline = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     ll = logline
+    ff = pull --ff-only --autostash
     fp = push --force-with-lease
     flunge = "!git fetch && git reset --hard @{upstream}"
     flups = "!git fetch && git reset --hard @{push}"
