@@ -83,8 +83,6 @@ elif command -v nano >/dev/null 2>&1; then
     export EDITOR='nano'
 fi
 
-#consider https://github.com/junegunn/fzf#setting-up-shell-integration
-
 if [ -x /usr/bin/dircolors ]; then
     if [[ -r /etc/dircolors ]]; then
         eval "$(dircolors -b /etc/dircolors)"
