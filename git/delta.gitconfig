@@ -4,6 +4,7 @@
     navigate = true  # use n and N to move between diff sections
     dark = true
     line-numbers = true
+    syntax-theme = Visual Studio Dark+
 [interactive]
     diffFilter = delta --color-only
 # this excludes merge.conflictStyle = zdiff3; it's nice, but has iffy compatibility with certain other tools, so I'd rather configure it separately
