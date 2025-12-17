@@ -80,12 +80,15 @@ $configRoot = Join-Path -Path $PSScriptRoot -ChildPath ".." | Join-Path -ChildPa
 if (Get-Command "batcat" -ErrorAction Ignore) {
     Set-Alias -Name:bat -Value:"batcat"
 }
+
 if (Get-Command "lsd" -ErrorAction Ignore) {
     function lla { lsd -lah $args }
 }
+
 if (Get-Command "less" -ErrorAction Ignore) {
     $env:LESS = '--mouse'
 }
+
 if (Get-Command "rg" -ErrorAction Ignore) {
     $rgConfigFile = Join-Path -Path $configRoot -ChildPath ".ripgreprc"
     $env:RIPGREP_CONFIG_PATH = (Get-Item -Force $rgConfigFile).FullName

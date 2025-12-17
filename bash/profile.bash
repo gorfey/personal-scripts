@@ -62,13 +62,16 @@ configRoot="$(realpath "$SCRIPT_DIR/../config/")"
 if command -v batcat >/dev/null 2>&1; then
     alias bat='batcat'
 fi
+
 if command -v lsd >/dev/null 2>&1; then
     alias lla='lsd -lah'
 fi
+
 if command -v rg >/dev/null 2>&1; then
     rgConfigFile="$configRoot/.ripgreprc"
     export RIPGREP_CONFIG_PATH="$rgConfigFile"
 fi
+
 if command -v fzf >/dev/null 2>&1; then
     eval "$(fzf --bash)"
 fi
