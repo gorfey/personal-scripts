@@ -3,6 +3,7 @@ configRoot="$(realpath "$SCRIPT_DIR/../config/")"
 if command -v batcat >/dev/null 2>&1; then
     alias bat='batcat'
 fi
+export BAT_THEME="Visual Studio Dark+"
 
 if command -v lsd >/dev/null 2>&1; then
     alias lla='lsd -lah'

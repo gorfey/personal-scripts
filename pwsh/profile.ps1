@@ -80,6 +80,7 @@ $configRoot = Join-Path -Path $PSScriptRoot -ChildPath ".." | Join-Path -ChildPa
 if (Get-Command "batcat" -ErrorAction Ignore) {
     Set-Alias -Name:bat -Value:"batcat"
 }
+$env:BAT_THEME = 'Visual Studio Dark+'
 
 if (Get-Command "lsd" -ErrorAction Ignore) {
     function lla { lsd -lah $args }
