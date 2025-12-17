@@ -70,6 +70,9 @@ if command -v rg >/dev/null 2>&1; then
     rgConfigFile="$configRoot/.ripgreprc"
     export RIPGREP_CONFIG_PATH="$rgConfigFile"
 fi
+if command -v fzf >/dev/null 2>&1; then
+    source <(fzf --zsh)
+fi
 
 if [[ -z ${LESSOPEN:-} ]] && [[ -x /usr/bin/lesspipe ]]; then
     eval "$(SHELL=/bin/sh lesspipe)"
