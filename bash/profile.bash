@@ -69,6 +69,9 @@ if command -v rg >/dev/null 2>&1; then
     rgConfigFile="$configRoot/.ripgreprc"
     export RIPGREP_CONFIG_PATH="$rgConfigFile"
 fi
+if command -v fzf >/dev/null 2>&1; then
+    eval "$(fzf --bash)"
+fi
 
 if [[ -z $LESSOPEN ]] && [[ -x /usr/bin/lesspipe ]]; then
     eval "$(SHELL=/bin/sh lesspipe)"
@@ -79,6 +82,8 @@ if command -v micro >/dev/null 2>&1; then
 elif command -v nano >/dev/null 2>&1; then
     export EDITOR='nano'
 fi
+
+#consider https://github.com/junegunn/fzf#setting-up-shell-integration
 
 if [ -x /usr/bin/dircolors ]; then
     if [[ -r /etc/dircolors ]]; then
