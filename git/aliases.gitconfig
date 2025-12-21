@@ -2,9 +2,17 @@
     logline = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     ll = logline
     ff = pull --ff-only --autostash
+    p = push --no-force-with-lease
     fp = push --force-with-lease
     flunge = "!git fetch && git reset --hard @{upstream}"
     flups = "!git fetch && git reset --hard @{push}"
+    rewrite = rebase --interactive --keep-base @{upstream}
+    rw = rewrite
+    autosquash = rebase --autosquash --keep-base @{upstream}
+    asq = autosquash
+    c = commit
+    ca = commit --amend
+    can = commit --amend --no-edit
     branch-status = "!f() { \
         branch_name=$(git rev-parse --abbrev-ref --verify --quiet \"${1}\"); \
         if [ -z \"${branch_name}\" ]; then \
