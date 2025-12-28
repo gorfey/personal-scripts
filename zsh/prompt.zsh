@@ -24,11 +24,8 @@ function is_remote() {
     return 1
 }
 
-if is_remote; then
-    IS_REMOTE=1
-else
-    IS_REMOTE=0
-fi
+IS_REMOTE=$(is_remote)
+EXPORT IS_REMOTE
 
 if (( IS_REMOTE )); then
     title="%n@%m: %~"
