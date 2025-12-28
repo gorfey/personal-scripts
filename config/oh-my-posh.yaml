@@ -11,6 +11,7 @@ palette:
   elevatedUser: lightRed
   host: "#cda706"
   path: lightBlue
+  shell: lightCyan
 blocks:
   - type: prompt
     alignment: left
@@ -32,6 +33,13 @@ blocks:
           mapped_locations:
             "~": "~"
         template: "{{ .Path }}"
+      - type: text
+        style: plain
+        template: ":"
+      - type: shell
+        style: plain
+        foreground: p:shell
+        template: "{{ .Name }}"
       - type: text
         style: plain
         template: ">"
