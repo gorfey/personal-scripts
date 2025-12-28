@@ -1,0 +1,45 @@
+final_space: true
+version: 4
+upgrade:
+  notice: true
+  interval: 72h
+shell_integration: true
+patch_pwsh_bleed: true
+async: false
+palette:
+  user: lightGreen
+  elevatedUser: lightRed
+  host: "#cda706"
+  path: lightBlue
+  shell: lightCyan
+blocks:
+  - type: prompt
+    alignment: left
+    segments:
+      - type: session
+        style: plain
+        templates:
+          - "{{ if .Root }}<p:elevatedUser>{{ .UserName }}</>{{ else }}<p:user>{{ .UserName }}</>{{ end }}"
+          - "{{ if or .SSHSession .Env.IS_REMOTE }}@<p:host>{{ .HostName }}</>{{ end }}"
+      - type: text
+        style: plain
+        template: ":"
+      - type: path
+        style: plain
+        foreground: p:path
+        options:
+          style: full
+          mapped_locations_enabled: false # disable unwanted registry mappings
+          mapped_locations:
+            "~": "~"
+        template: "{{ .Path }}"
+      - type: text
+        style: plain
+        template: ":"
+      - type: shell
+        style: plain
+        foreground: p:shell
+        template: "{{ .Name }}"
+      - type: text
+        style: plain
+        template: ">"

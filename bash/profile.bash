@@ -41,11 +41,8 @@ is_remote() {
     return 1
 }
 
-if is_remote; then
-    IS_REMOTE=1
-else
-    IS_REMOTE=0
-fi
+IS_REMOTE=$(is_remote)
+export IS_REMOTE
 
 if (( IS_REMOTE )); then
     title="\u@\h: \w"
@@ -102,5 +99,8 @@ fi
 if command -v zoxide >/dev/null 2>&1; then
     eval "$(zoxide init bash)"
     alias cd='z'
+fi
+if command -v oh-my-posh >/dev/null 2>&1; then
+    eval "$(oh-my-posh init bash --config "$configRoot/oh-my-posh.yaml")"
 fi
 #endregion

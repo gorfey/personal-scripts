@@ -53,10 +53,10 @@ function Test-IsSshdAncestor {
 }
 
 if ( (Test-IsPSSession) -or (Test-IsSshEnvironment) -or (Test-IsSshdAncestor) ) {
-    $global:IS_REMOTE = $true
+    $env:IS_REMOTE = $true
 }
 else {
-    $global:IS_REMOTE = $false
+    $env:IS_REMOTE = $false
 }
 
 function Prompt {
@@ -122,5 +122,10 @@ if (Test-Path $extensionsDir -Type Container) {
 if (Get-Command "zoxide" -ErrorAction Ignore) {
     Invoke-Expression (& { (zoxide init powershell | Out-String) } )
     Set-Alias -Name:cd -Value:"z" -Option AllScope # Could also pass a parameter to zoxide init; I like both being around though.
+}
+
+if (Get-Command "oh-my-posh" -ErrorAction Ignore) {
+    $ompConfigFile = Join-Path -Path $configRoot -ChildPath "oh-my-posh.yaml"
+    Invoke-Expression (oh-my-posh init pwsh --config $ompConfigFile)
 }
 #endregion

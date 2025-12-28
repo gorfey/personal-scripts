@@ -18,4 +18,7 @@ if command -v zoxide >/dev/null 2>&1; then
     eval "$(zoxide init zsh)"
     alias cd='z'
 fi
+if command -v oh-my-posh >/dev/null 2>&1; then
+    eval "$(oh-my-posh init bash --config "$configRoot/oh-my-posh.yaml")"
+fi
 #endregion
