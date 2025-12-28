@@ -2,4 +2,7 @@
     "files.eol": "\n",
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json": "misc-shell/oh-my-posh.yaml"
+    },
 }
