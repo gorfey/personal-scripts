@@ -25,11 +25,11 @@ function is_remote() {
 }
 
 IS_REMOTE=$(is_remote)
-EXPORT IS_REMOTE
 
 if (( IS_REMOTE )); then
     title="%n@%m: %~"
     prompt_core="%F{green}%n@%m%f:%F{12}%~%f"
+    export IS_REMOTE
 else
     title="%n: %~"
     prompt_core="%F{green}%n%f:%F{12}%~%f"

@@ -55,9 +55,6 @@ function Test-IsSshdAncestor {
 if ( (Test-IsPSSession) -or (Test-IsSshEnvironment) -or (Test-IsSshdAncestor) ) {
     $env:IS_REMOTE = $true
 }
-else {
-    $env:IS_REMOTE = $false
-}
 
 function Prompt {
     $user = [System.Environment]::UserName
