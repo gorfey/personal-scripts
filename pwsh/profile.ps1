@@ -64,7 +64,7 @@ function Prompt {
     $path = $executionContext.SessionState.Path.CurrentLocation.Path
     $promptSymbol = '>' * ($nestedPromptLevel + 1)
 
-    if ($global:IS_REMOTE) {
+    if ($env:IS_REMOTE) {
         $hostName = [System.Environment]::MachineName
         $promptString = "${user}@${hostName} ${path}${promptSymbol} "
     }
