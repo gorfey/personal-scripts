@@ -11,6 +11,10 @@ get_parent_dir() {
     cd "$(dirname "$path")" >/dev/null 2>&1 && pwd
 }
 SCRIPT_DIR="$(get_parent_dir "${BASH_SOURCE[0]}")"
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+    export PATH
+fi
 #endregion
 #region Prompt
 is_remote() {

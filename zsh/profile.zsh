@@ -7,6 +7,10 @@ get_parent_dir() {
     local path="$1"
     cd "$(dirname "$path")" >/dev/null 2>&1 && pwd
 }
+if [ -d "$HOME/.local/bin" ]; then
+    PATH="$HOME/.local/bin:$PATH"
+    export PATH
+fi
 #region Source rest of profile
 SCRIPT_DIR="${0:a:h}"
 source "${SCRIPT_DIR}/app-opts.zsh"
