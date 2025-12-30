@@ -23,6 +23,7 @@ if command -v zoxide >/dev/null 2>&1; then
     alias cd='z'
 fi
 if command -v oh-my-posh >/dev/null 2>&1; then
-    eval "$(oh-my-posh init bash --config "$configRoot/oh-my-posh.yaml")"
+    configRoot="$(realpath "$SCRIPT_DIR/../config/")"
+    eval "$(oh-my-posh init zsh --config "$configRoot/oh-my-posh.yaml")"
 fi
 #endregion
