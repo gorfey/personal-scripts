@@ -6,6 +6,12 @@ Set-PSReadlineKeyHandler -Key PageUp -Function HistorySearchBackward
 Set-PSReadLineKeyHandler -Key PageDown -Function HistorySearchForward
 #endregion
 #region General aliases/functions
+$homeDir = if ($HOME) { $HOME } else { [System.Environment]::GetFolderPath('UserProfile') }
+$localBin = Join-Path $homeDir '.local/bin'
+if (Test-Path $localBin) {
+    $sep = [System.IO.Path]::PathSeparator
+    $env:PATH = "$localBin$sep$env:PATH"
+}
 Set-Alias -Name:eps -Value:"Enter-PsSession"
 function Resolve-Error ($ErrorRecord=$Error[0])
 {
