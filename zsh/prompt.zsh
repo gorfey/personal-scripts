@@ -24,15 +24,15 @@ function is_remote() {
     return 1
 }
 
-IS_REMOTE=$(is_remote)
-
-if (( IS_REMOTE )); then
+if is_remote; then
     title="%n@%m: %~"
     prompt_core="%F{green}%n@%m%f:%F{12}%~%f"
+    IS_REMOTE=1
     export IS_REMOTE
 else
     title="%n: %~"
     prompt_core="%F{green}%n%f:%F{12}%~%f"
 fi
+
 
 PROMPT="%{$(print -Pn '\e]0;'${title}'\a')%}${prompt_core}%# "
