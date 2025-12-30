@@ -45,11 +45,10 @@ is_remote() {
     return 1
 }
 
-IS_REMOTE=$(is_remote)
-
-if (( IS_REMOTE )); then
+if is_remote; then
     title="\u@\h: \w"
     prompt_core="\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]"
+    IS_REMOTE=1
     export IS_REMOTE
 else
     title="\u: \w"
