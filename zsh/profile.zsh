@@ -18,12 +18,12 @@ source "${SCRIPT_DIR}/prompt.zsh"
 source "${SCRIPT_DIR}/shell-opts.zsh"
 #endregion
 #region Late commands
-if command -v zoxide >/dev/null 2>&1; then
-    eval "$(zoxide init zsh)"
-    alias cd='z'
-fi
 if command -v oh-my-posh >/dev/null 2>&1; then
     configRoot="$(realpath "$SCRIPT_DIR/../config/")"
     eval "$(oh-my-posh init zsh --config "$configRoot/oh-my-posh.yaml")"
+fi
+if command -v zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init zsh)"
+    alias cd='z'
 fi
 #endregion

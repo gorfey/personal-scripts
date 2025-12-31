@@ -122,13 +122,13 @@ if (Test-Path $extensionsDir -Type Container) {
 }
 #endregion
 #region Late commands
-if (Get-Command "zoxide" -ErrorAction Ignore) {
-    Invoke-Expression (& { (zoxide init powershell | Out-String) } )
-    Set-Alias -Name:cd -Value:"z" -Option AllScope # Could also pass a parameter to zoxide init; I like both being around though.
-}
-
 if (Get-Command "oh-my-posh" -ErrorAction Ignore) {
     $ompConfigFile = Join-Path -Path $configRoot -ChildPath "oh-my-posh.yaml"
     Invoke-Expression (oh-my-posh init pwsh --config $ompConfigFile)
+}
+
+if (Get-Command "zoxide" -ErrorAction Ignore) {
+    Invoke-Expression (& { (zoxide init powershell | Out-String) } )
+    Set-Alias -Name:cd -Value:"z" -Option AllScope # Could also pass a parameter to zoxide init; I like both being around though.
 }
 #endregion
