@@ -41,6 +41,16 @@ blocks:
         style: plain
         foreground: p:shell
         template: "{{ .Name }}"
+      - type: git
+        style: plain
+        options:
+          fetch_upstream_icon: true
+        templates:
+          - "["
+          - "{{ url .UpstreamIcon .UpstreamURL }}"
+          - "{{ if and (not .IsWorkTree) (ne (trunc 5 .Ref) (trunc 5 .Commit.Sha)) }}{{ .Ref }}@{{ end }}"
+          - "{{ url (trunc 8 .Commit.Sha) (list (trimSuffix \".git\" .UpstreamURL) \"/commit/\" .Commit.Sha | join \"\") }}"
+          - "]"
       - type: text
         style: plain
         template: ">"
