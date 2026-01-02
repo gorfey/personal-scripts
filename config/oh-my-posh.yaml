@@ -32,6 +32,7 @@ blocks:
           mapped_locations_enabled: false # disable unwanted registry mappings
           mapped_locations:
             "~": "~"
+            "re:(.*/LukeSource)": "LS"
         template: "{{ .Path }}"
       - type: text
         style: plain
