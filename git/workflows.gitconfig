@@ -8,3 +8,5 @@
 	rebase = true
 [rebase]
     autoStash = true
+[status]
+    compareBranches= "@{upstream} @{push}"
