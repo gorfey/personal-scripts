@@ -55,7 +55,7 @@ function Test-IsSshdAncestor
             $proc = Get-Process -Id $currentPid -ErrorAction SilentlyContinue
             if (-not $proc) { break }
             if ($proc.ProcessName -eq 'sshd') { return $true }
-            if (-not $proc.Parent -or $proc.Parent.Id -eq 0) { break }
+            if (-not $proc.Parent) { break }
             $currentPid = $proc.Parent.Id
         }
     }
