@@ -4,8 +4,9 @@ setopt interactivecomments
 if [[ ! -o interactive ]]; then
     return
 fi
-if [ -d "$HOME/.local/bin" ]; then
-    PATH="$HOME/.local/bin:$PATH"
+typeset -U path PATH
+if [[ -d "$HOME/.local/bin" ]]; then
+    path+=("$HOME/.local/bin")
     export PATH
 fi
 #region Source rest of profile
