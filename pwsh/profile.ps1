@@ -106,19 +106,13 @@ elseif (Get-Command "nano" -ErrorAction Ignore) {
 }
 #endregion
 #region Extensibility
-$modulesDir = "$PSScriptRoot/modules"
-$extensionsDir = "$PSScriptRoot/extensions"
-if (Test-Path $modulesDir -Type Container) {
-    $modules = Get-ChildItem -Path $modulesDir -File
-    foreach ($module in $modules) {
-        Import-Module -Force ($module.FullName)
-    }
+$modules = Get-ChildItem -Path "$PSScriptRoot/modules" -File *.psm1
+foreach ($module in $modules) {
+    Import-Module -Force ($module.FullName)
 }
-if (Test-Path $extensionsDir -Type Container) {
-    $extensions = Get-ChildItem -Path $extensionsDir -File
-    foreach ($extension in $extensions) {
-        . ($extension.FullName)
-    }
+$extensions = Get-ChildItem -Path "$PSScriptRoot/extensions" -File *.ps1
+foreach ($extension in $extensions) {
+    . ($extension.FullName)
 }
 #endregion
 #region Late commands
