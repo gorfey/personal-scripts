@@ -4,10 +4,6 @@ setopt interactivecomments
 if [[ ! -o interactive ]]; then
     return
 fi
-get_parent_dir() {
-    local path="$1"
-    cd "$(dirname "$path")" >/dev/null 2>&1 && pwd
-}
 if [ -d "$HOME/.local/bin" ]; then
     PATH="$HOME/.local/bin:$PATH"
     export PATH
