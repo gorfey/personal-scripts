@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Do nothing if not running interactively
 case $- in
         *i*) ;;
@@ -10,11 +9,17 @@ get_parent_dir() {
     local path="$1"
     cd "$(dirname "$path")" >/dev/null 2>&1 && pwd
 }
+pathprepend() {
+  for ((i=$#; i>0; i--));
+  do
+    ARG=${!i}
+    if [ -d "$ARG" ] && [[ ":$PATH:" != *":$ARG:"* ]]; then
+        PATH="$ARG${PATH:+":$PATH"}"
+    fi
+  done
+}
 SCRIPT_DIR="$(get_parent_dir "${BASH_SOURCE[0]}")"
-if [[ -d "$HOME/.local/bin" ]]; then
-    PATH="$HOME/.local/bin:$PATH"
-    export PATH
-fi
+pathprepend "$HOME/.local/bin"
 #endregion
 #region Prompt
 is_remote() {
