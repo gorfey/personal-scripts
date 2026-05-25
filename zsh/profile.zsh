@@ -1,3 +1,4 @@
+#!/bin/zsh
 setopt interactivecomments
 
 if [[ ! -o interactive ]]; then

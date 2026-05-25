@@ -1,3 +1,4 @@
+#!/bin/zsh
 SCRIPT_DIR="${0:a:h}"
 configRoot="$(realpath "$SCRIPT_DIR/../config/")"
 if command -v batcat >/dev/null 2>&1; then

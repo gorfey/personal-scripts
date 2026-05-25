@@ -1,3 +1,4 @@
+#!/bin/zsh
 # Line editor config
 autoload -U select-word-style
 select-word-style bash # Consider select-word-style with e.g. WORDCHARS=${WORDCHARS//[\/]}

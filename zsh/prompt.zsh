@@ -1,3 +1,4 @@
+#!/bin/zsh
 function is_remote() {
     # Short circuit if possible
     if [[ -n "$SSH_CONNECTION" || -n "$SSH_CLIENT" || -n "$SSH_TTY" ]]; then

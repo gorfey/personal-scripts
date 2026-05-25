@@ -1,4 +1,4 @@
-#shellcheck shell=bash
+#!/bin/bash
 
 # Do nothing if not running interactively
 case $- in
@@ -11,7 +11,7 @@ get_parent_dir() {
     cd "$(dirname "$path")" >/dev/null 2>&1 && pwd
 }
 SCRIPT_DIR="$(get_parent_dir "${BASH_SOURCE[0]}")"
-if [ -d "$HOME/.local/bin" ]; then
+if [[ -d "$HOME/.local/bin" ]]; then
     PATH="$HOME/.local/bin:$PATH"
     export PATH
 fi
@@ -87,7 +87,7 @@ elif command -v nano >/dev/null 2>&1; then
     export EDITOR='nano'
 fi
 
-if [ -x /usr/bin/dircolors ]; then
+if [[ -x /usr/bin/dircolors ]]; then
     if [[ -r /etc/dircolors ]]; then
         eval "$(dircolors -b /etc/dircolors)"
     else
