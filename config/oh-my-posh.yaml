@@ -3,8 +3,7 @@
 final_space: true
 version: 4
 upgrade:
-  notice: true
-  interval: 72h
+  notice: false
 shell_integration: true
 patch_pwsh_bleed: true
 async: false
@@ -32,7 +31,7 @@ blocks:
         foreground: p:path
         options:
           style: full
-          mapped_locations_enabled: false  # disable unwanted registry mappings
+          mapped_locations_enabled: false # disable unwanted registry mappings
           mapped_locations:
             "~": "~"
             "re:(.*/LukeSource)": "LS"
@@ -44,10 +43,10 @@ blocks:
         style: plain
         foreground: p:shell
         template: "{{ .Name }}"
-      - type : python
+      - type: python
         style: plain
         options:
-         cache_duration: 30s
+          cache_duration: 30s
         template: "{{ if .Venv }}:<p:packageManager>{{ .Venv }}@{{ .Full }}</>{{ end }}"
       - type: text
         style: plain
