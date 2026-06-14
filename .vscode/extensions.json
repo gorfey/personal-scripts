@@ -2,6 +2,7 @@
     "recommendations": [
         "ms-vscode.powershell",
         "timonwong.shellcheck",
-        "redhat.vscode-yaml"
+        "redhat.vscode-yaml",
+        "jjk.jjk"
     ]
 }
