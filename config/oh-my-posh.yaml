@@ -6,7 +6,7 @@ upgrade:
   notice: false
 shell_integration: true
 patch_pwsh_bleed: true
-async: false
+async: true
 palette:
   user: lightGreen
   elevatedUser: lightRed
