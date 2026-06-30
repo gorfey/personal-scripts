@@ -35,6 +35,7 @@ blocks:
           mapped_locations:
             "~": "~"
             "re:(.*/LukeSource)": "LS"
+            "C:/EpicSource": "ES"
         template: "{{ .Path }}"
       - type: text
         style: plain
