@@ -12,24 +12,14 @@ function Add-Path ([string[]]$newPaths)
 {
     $sep = [System.IO.Path]::PathSeparator
     $oldPaths = $env:PATH -split [System.IO.Path]::PathSeparator
-    $filteredNewPaths = $newPaths | Where-Object {$_ -notin $oldPaths -and (Test-Path $_ -PathType Container)}
-    if ($filteredNewPaths.Count -gt 0) {
+    $filteredNewPaths = $newPaths | Where-Object { $_ -notin $oldPaths -and (Test-Path $_ -PathType Container) }
+    if ($filteredNewPaths.Count -gt 0)
+    {
         $env:PATH = ($filteredNewPaths -join $sep) + $sep + $env:PATH
     }
 }
 $localBin = Join-Path $homeDir '.local/bin'
 Add-Path $localBin
-function Resolve-Error ($ErrorRecord = $Error[0])
-{
-    $ErrorRecord | Format-List * -Force
-    $ErrorRecord.InvocationInfo | Format-List *
-    $Exception = $ErrorRecord.Exception
-    for ($i = 0; $Exception; $i++, ($Exception = $Exception.InnerException))
-    {
-        "$i" * 80
-        $Exception | Format-List * -Force
-    }
-}
 function modulize
 {
     Get-ChildItem -Recurse *.psm1 | Import-Module -Force
