@@ -13,6 +13,7 @@
     c = commit
     ca = commit --amend
     can = commit --amend --no-edit
+    diffup = diff @{upstream}...HEAD
     branch-status = "!f() { \
         branch_name=$(git rev-parse --abbrev-ref --verify --quiet \"${1}\"); \
         if [ -z \"${branch_name}\" ]; then \
